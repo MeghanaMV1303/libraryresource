@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Library</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <% if (user) { %>
+            <a href="/logout">Logout</a>
+        <% } else { %>
+            <a href="/login">Login</a>
+            <a href="/signup">Sign Up</a>
+        <% } %>
+    </div>
+
+    <h1>Available Resources</h1>
+    <div class="resources">
+        <% resources.forEach(function(resource) { %>
+            <div class="resource">
+                <h3><%= resource.title %></h3>
+                <p><%= resource.description %></p>
+                <a href="/resource/<%= resource.id %>">View Details</a>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>
+
